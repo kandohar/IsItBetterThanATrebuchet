@@ -13,10 +13,9 @@
 
 <body>
   
-<div class="container">
-  
+<div id="query">
   <h1>Is it better than a trebuchet ?</h1>
-  <form action="index.html">
+  <form action="" method="get">
     <label for="name">What is for you, better than a trebuchet ?</label>
     <input id="object" type="text" required />
 
@@ -24,7 +23,20 @@
   </form>
 </div>
 
+<div id="response">
+
+</div>
+
 <script>
+    var urlParams = new URLSearchParams(window.location.search);
+
+    if(urlParams.has('object')){
+        var queryDiv = document.getElementById('query');
+        queryDiv.style.display = 'none';
+
+        var responseDiv = document.getElementById('response');
+        responseDiv.innerHTML = "Obviously, " + urlParams.get('object') + "is not better than a trebuchet.";
+	}
 </script>
 
 </body>
